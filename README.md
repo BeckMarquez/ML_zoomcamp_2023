@@ -56,7 +56,7 @@ The next 14 variables are all customer’s satisfaction level to a certain aspec
 
 Application is containerized, you must have Docker installed on your PC.
 
-1. Download files and place them to separate folder
+1. Download files from "Midterm_project" branch and place them to separate folder
 2. Run terminal on this folder
 3. Build Docker image using command (don`t forget dot at the end):
 
