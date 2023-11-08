@@ -51,8 +51,14 @@ The next 14 variables are all customer’s satisfaction level to a certain aspec
 8. predict.py - python scipt with model loading and serving it via a web service (Flask)
 9. test.py - python script with sample client information. This file used for model testing via web service
 10. train.py - python script containing the final model training and saving it to a file (using pickle)
+11. test_online.py - python script with sample client information. This file used for model testing via Google Run
 
-## 5. How to build a contained application and how to run it
+## 5. How to run application ising Google Run
+
+1. App is deployed on Google Run [link](https://acs-elnvu7t72a-ew.a.run.app), but it won't open through browser. You must run "test_online.py" from your python IDE.
+2. You may change features in "test_online.py" to get different results.
+
+## 6. How to build a contained application and how to run it
 
 Application is containerized, you must have Docker installed on your PC.
 
