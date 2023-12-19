@@ -11,6 +11,7 @@ Bacterial pneumonia requires urgent referral for immediate antibiotic treatment,
 ## 3. Dataset Description
 
 The dataset we use is from [Kaggle.com](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia). The dataset is quite large and not included directly to project repository. It consists of:
+
 - total training normal images: 1342
 - total training pneumonia images: 3876
 - total validation normal images: 8
@@ -35,7 +36,7 @@ The dataset we use is from [Kaggle.com](https://www.kaggle.com/datasets/paultimo
 
 ## 5. How to run application using Google Run
 
-1.App is deployed on Google Run [link](https://chest-x-ray-txo26qljya-ew.a.run.app/predict), but it won't open through browser. 
+App is deployed on Google Run [link](https://chest-x-ray-txo26qljya-ew.a.run.app/predict), but it won't open through browser.
 You must run `testing_TFlite_model_deploy_google_run.ipynb` from your python IDE.
 > [!NOTE]
 >
@@ -49,25 +50,28 @@ Application is containerized, you must have Docker desktop installed on your PC.
 2. Run terminal on this folder
 3. Build Docker image using command (don`t forget dot at the end):
 
+```text
+    docker build -t chest_x_ray_tflite_model .
 ```
-docker build -t chest_x_ray_tflite_model .
-```
-or 
+
+or
 you may pull image from Docker hub using command:
+
+```text
+    docker pull beckmarquez/chest_x_ray
 ```
-docker pull beckmarquez/chest_x_ray
-```
+
 4. Run created image using command (don`t forget dot at the end):
 
-```
+```text
 docker run -i --rm -p 9696:9696 chest_x_ray_tflite_model:latest
 ```
 
 5. You should see the following:
 
-```
-INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
-INFO:waitress:Serving on http://0.0.0.0:9696
+```text
+    INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+    INFO:waitress:Serving on http://0.0.0.0:9696
 ```
 
 6. Now you may run `testing_TFlite_model_flask.ipynb` from your python IDE
@@ -76,12 +80,17 @@ INFO:waitress:Serving on http://0.0.0.0:9696
 ## 7. How to build environment used in the project
 
 In Unix ow WSL:
+
 1. `cd` to your desirable dev folder
-2. Run commands:
+1. Run commands:
 `pip install virtualenv` > if you don't already have virtualenv installed
+
 `virtualenv venv` > to create your new environment (called 'venv' here)
+
 `source venv/bin/activate` > to enter the virtual environment
+
 `pip install -r requirements.txt` > to install the requirements provided in `requirements.txt` in the current environment
+
 `deactivate` > to exit from venv
 
 If you using Conda, problems may appear, because currently (December 2023) Conda uses Tensorflow 2.10 and in these project I have been using Tensorflow 2.15
